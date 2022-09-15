@@ -20,6 +20,7 @@ export default siteConfig({
   // twitter: 'transitive_bs',
   github: '1chang1',
   linkedin: '1c1',
+
   // newsletter: '#', // optional newsletter URL
   // youtube: '#', // optional youtube channel name or `channel/UCGbXXXXXXXXXXXXXXXXXXXXXX`
 
