@@ -156,6 +156,21 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const router = useRouter()
   const lite = useSearchParam('lite')
 
+  React.useEffect(() => {
+    const intro = document.getElementsByClassName(
+      'notion-block-e2937a32ee344038bc1fb55c74a22d8f'
+    )
+    if (intro && intro.length > 0) intro[0].id = 'link-intro'
+    const careers = document.getElementsByClassName(
+      'notion-block-85f68c0cbfd44be5a0d85a3137a673de'
+    )
+    if (careers && careers.length > 0) careers[0].id = 'link-careers'
+    const projects = document.getElementsByClassName(
+      'notion-block-781d9405d3494e808dcdfc106dc8e46d'
+    )
+    if (projects && projects.length > 0) projects[0].id = 'link-projects'
+  }, [])
+
   const components = React.useMemo(
     () => ({
       nextImage: Image,
@@ -282,11 +297,11 @@ export const NotionPage: React.FC<types.PageProps> = ({
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapImageUrl}
         searchNotion={config.isSearchEnabled ? searchNotion : null}
-        pageAside={pageAside}
+        // pageAside={pageAside}
         footer={footer}
       />
 
-      <GitHubShareButton />
+      {/* <GitHubShareButton /> */}
     </>
   )
 }

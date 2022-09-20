@@ -60,20 +60,24 @@ export default siteConfig({
     '/projects-traffin': 'TRAFFIN-24971d0c6a8e470e8d05ac7ed12327d4',
     '/projects-hyowonlife': '750da52c857648978e315f5d11c00daf',
     '/projects-tothesky': 'toTheSky-1b33457e15fa4ba3851eb685f2edbfac'
-  }
+  },
 
   // whether to use the default notion navigation style or a custom one with links to
   // important pages
-  // navigationStyle: 'default'
-  // navigationStyle: 'custom',
-  // navigationLinks: [
-  //   {
-  //     title: 'About',
-  //     pageId: 'f1199d37579b41cbabfc0b5174f4256a'
-  //   },
-  //   {
-  //     title: 'Contact',
-  //     pageId: '6a29ebcb935a4f0689fe661ab5f3b8d1'
-  //   }
-  // ]
+  // navigationStyle: 'default',
+  navigationStyle: 'custom',
+  navigationLinks: [
+    {
+      title: 'Intro',
+      id: '#link-intro'
+    },
+    {
+      title: 'Careers',
+      id: '#link-careers'
+    },
+    {
+      title: 'Projects',
+      id: '#link-projects'
+    }
+  ]
 })
