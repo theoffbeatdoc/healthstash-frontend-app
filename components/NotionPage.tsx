@@ -1,12 +1,12 @@
 import * as React from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-//import Link from 'next/link'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import cs from 'classnames'
 import { PageBlock } from 'notion-types'
-//import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
+import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
 import BodyClassName from 'react-body-classname'
 import { NotionRenderer } from 'react-notion-x'
 import TweetEmbed from 'react-tweet-embed'
@@ -19,15 +19,13 @@ import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
 import { searchNotion } from '@/lib/search-notion'
 import { useDarkMode } from '@/lib/use-dark-mode'
 
-// components
-import { Loading } from './Loading'
-import { Page404 } from './Page404'
-import { PageHead } from './PageHead'
-// import { PageAside } from './PageAside'
 import { Footer } from './Footer'
+import { GitHubShareButton } from './GitHubShareButton'
+import { Loading } from './Loading'
 import { NotionPageHeader } from './NotionPageHeader'
-// import { GitHubShareButton } from './GitHubShareButton'
-
+import { Page404 } from './Page404'
+import { PageAside } from './PageAside'
+import { PageHead } from './PageHead'
 import styles from './styles.module.css'
 
 // -----------------------------------------------------------------------------
@@ -153,21 +151,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const router = useRouter()
   const lite = useSearchParam('lite')
 
-  React.useEffect(() => {
-    const intro = document.getElementsByClassName(
-      'notion-block-e2937a32ee344038bc1fb55c74a22d8f'
-    )
-    if (intro && intro.length > 0) intro[0].id = 'link-intro'
-    const careers = document.getElementsByClassName(
-      'notion-block-85f68c0cbfd44be5a0d85a3137a673de'
-    )
-    if (careers && careers.length > 0) careers[0].id = 'link-careers'
-    const projects = document.getElementsByClassName(
-      'notion-block-781d9405d3494e808dcdfc106dc8e46d'
-    )
-    if (projects && projects.length > 0) projects[0].id = 'link-projects'
-  }, [])
-
   const components = React.useMemo(
     () => ({
       nextImage: Image,
@@ -210,12 +193,12 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
-  // const pageAside = React.useMemo(
-  //   () => (
-  //     <PageAside block={block} recordMap={recordMap} isBlogPost={isBlogPost} />
-  //   ),
-  //   [block, recordMap, isBlogPost]
-  // )
+  const pageAside = React.useMemo(
+    () => (
+      <PageAside block={block} recordMap={recordMap} isBlogPost={isBlogPost} />
+    ),
+    [block, recordMap, isBlogPost]
+  )
 
   const footer = React.useMemo(() => <Footer />, [])
 
@@ -294,11 +277,11 @@ export const NotionPage: React.FC<types.PageProps> = ({
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapImageUrl}
         searchNotion={config.isSearchEnabled ? searchNotion : null}
-        // pageAside={pageAside}
+        pageAside={pageAside}
         footer={footer}
       />
 
-      {/* <GitHubShareButton /> */}
+      <GitHubShareButton />
     </>
   )
 }

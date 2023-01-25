@@ -10,7 +10,6 @@ import { isSearchEnabled, navigationLinks, navigationStyle } from '@/lib/config'
 import { useDarkMode } from '@/lib/use-dark-mode'
 
 import styles from './styles.module.css'
-import Link from 'next/link'
 
 const ToggleThemeButton = () => {
   const [hasMounted, setHasMounted] = React.useState(false)
@@ -51,7 +50,7 @@ export const NotionPageHeader: React.FC<{
         <div className='notion-nav-header-rhs breadcrumbs'>
           {navigationLinks
             ?.map((link, index) => {
-              if (!link.pageId && !link.url && !link.id) {
+              if (!link.pageId && !link.url) {
                 return null
               }
 
@@ -65,7 +64,7 @@ export const NotionPageHeader: React.FC<{
                     {link.title}
                   </components.PageLink>
                 )
-              } else if (link.url) {
+              } else {
                 return (
                   <components.Link
                     href={link.url}
@@ -74,17 +73,6 @@ export const NotionPageHeader: React.FC<{
                   >
                     {link.title}
                   </components.Link>
-                )
-              } else {
-                return (
-                  <span
-                    style={{ padding: 8 }}
-                    className={cs(styles.navLink, 'breadcrumb', 'button')}
-                  >
-                    <Link href={link.id} key={index} scroll={true}>
-                      {link.title}
-                    </Link>
-                  </span>
                 )
               }
             })
