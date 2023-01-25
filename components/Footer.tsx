@@ -43,12 +43,11 @@ export const FooterImpl: React.FC = () => {
         {hasMounted && (
           <a
             className={styles.toggleDarkMode}
-            href='#'
+            href='https://theoffbeatdoc.com'
             role='button'
-            onClick={onToggleDarkMode}
             title='Toggle dark mode'
           >
-            {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+            {isDarkMode ? <img src='https://open.theoffbeatdoc.com/assets/logos/logo-darkmode-small.png' width={'180px'}/> : <img src='https://open.theoffbeatdoc.com/assets/logos/logo-normal-small.png' width={'180px'}/>}
           </a>
         )}
       </div>
