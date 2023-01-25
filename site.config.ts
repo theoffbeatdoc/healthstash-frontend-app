@@ -25,8 +25,8 @@ export default siteConfig({
   // youtube: '#', // optional youtube channel name or `channel/UCGbXXXXXXXXXXXXXXXXXXXXXX`
 
   // Custom logo - this will replace the breadcrumbs - Feature requires navigationStyle: 'custom'
-  // customHeaderLogo: 'https://transitivebullsh.it/logo.png',
-  // customHeaderLogoDark: 'https://transitivebullsh.it/logo-dark.png', // optional
+  customHeaderLogo: 'https://1.bp.blogspot.com/-fZ38nKKsoqQ/YUYRfQne9_I/AAAAAAAAAfc/iWIDawW-n-crOO2hJn4C5XBaCnyfFPqegCLcBGAsYHQ/w300/logo1.png',
+  customHeaderLogoDark: 'https://1.bp.blogspot.com/-vNGYwaSy7QY/YUYjVNs4EyI/AAAAAAAAAfs/f6KjSKcUdLQG-IznFVFHE0Pgw5XhAIDSACLcBGAsYHQ/s16000/logo2.png', // optional
 
   // default notion icon and cover images for site-wide consistency (optional)
   // page-specific values will override these site-wide defaults
@@ -54,8 +54,8 @@ export default siteConfig({
 
   // whether to use the default notion navigation style or a custom one with links to
   // important pages
-  navigationStyle: 'default'
-  // navigationStyle: 'custom',
+  //navigationStyle: 'default'
+  navigationStyle: 'custom',
   // navigationLinks: [
   //   {
   //     title: 'About',
